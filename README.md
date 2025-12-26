@@ -17,11 +17,11 @@
 # Install globally
 npm install -g @compilr-dev/cli
 
-# Set your API key
-export ANTHROPIC_API_KEY="your-key-here"
-
-# Start coding
+# Start the CLI
 compilr
+
+# Set your API key (interactive prompt)
+/keys
 ```
 
 ## Features
@@ -69,6 +69,8 @@ The CLI includes tools for file operations, git, and code search:
 | Command | Description |
 |---------|-------------|
 | `/help` | Show available commands |
+| `/keys` | Manage API keys |
+| `/config` | Configure settings |
 | `/init` | Initialize new project |
 | `/design` | Requirements gathering workflow |
 | `/sketch` | Quick project outline |
@@ -77,7 +79,6 @@ The CLI includes tools for file operations, git, and code search:
 | `/tools` | List available tools |
 | `/tokens` | Show token usage |
 | `/context` | Show context statistics |
-| `/config` | Configure settings |
 | `/compact` | Compress conversation context |
 | `/clear` | Clear conversation history |
 | `/exit` | Exit the CLI |
@@ -94,21 +95,20 @@ The CLI includes tools for file operations, git, and code search:
 
 ### API Keys
 
-Set the API key for your provider:
+**Option 1: Use `/keys` command (recommended)**
+
+Run `/keys` inside the CLI to securely store your API keys. Keys are encrypted and stored locally.
+
+**Option 2: Environment variables**
 
 ```bash
-# Claude (Anthropic)
-export ANTHROPIC_API_KEY="sk-ant-..."
-
-# OpenAI
-export OPENAI_API_KEY="sk-..."
-
-# Google Gemini
-export GOOGLE_API_KEY="..."
-
-# Ollama (no key needed, just run locally)
-ollama serve
+export ANTHROPIC_API_KEY="sk-ant-..."   # Claude
+export OPENAI_API_KEY="sk-..."          # OpenAI
+export GOOGLE_API_KEY="..."             # Google Gemini
+# Ollama: no key needed, just run `ollama serve`
 ```
+
+Environment variables take priority over stored keys.
 
 ### Project Configuration
 
