@@ -1,15 +1,19 @@
 # @compilr-dev/cli
 
+```
+      \|/
+    ╭══════════╮     ___  ___  _ __ ___  _ __ (_) |_ __
+    ║'  ▐▌  ▐▌ │    / __|/ _ \| '_ ` _ \| '_ \| | | '__|
+    ║          │   | (__| (_) | | | | | | |_) | | | |
+    ╰─═──────═─╯    \___|\___/|_| |_| |_| .__/|_|_|_|
+      \________\                        | | .dev
+                                        |_| CLI
+```
+
 > AI-powered coding assistant for your terminal
 
 [![npm version](https://img.shields.io/npm/v/@compilr-dev/cli.svg)](https://www.npmjs.com/package/@compilr-dev/cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-```
-> compilr_
-
-  AI-powered development tools for engineers who ship.
-```
 
 ## Quick Start
 
@@ -151,6 +155,6 @@ MIT - See [LICENSE](LICENSE) for details.
 
 ---
 
-<p align="center">
-  <strong>Built with ❤️ by <a href="https://compilr.dev">compilr.dev</a></strong>
-</p>
+```
+[^_^] Built with @compilr-dev/agents
+```
