@@ -15,6 +15,12 @@
 [![npm version](https://img.shields.io/npm/v/@compilr-dev/cli.svg)](https://www.npmjs.com/package/@compilr-dev/cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Overview
+
+A structured AI coding assistant that brings discipline to AI-assisted development. Supports 9 LLM providers, multi-agent teams, project workflows, and 25 interactive tutorials -- all in your terminal.
+
+**Stop vibe coding. Start building.**
+
 ## Quick Start
 
 ```bash
@@ -24,22 +30,29 @@ npm install -g @compilr-dev/cli
 # Start the CLI
 compilr
 
-# Set your API key (interactive prompt)
-/keys
+# Set your API key (interactive prompt on first run)
+# Or use /keys inside the CLI
 ```
 
 ## Features
 
-### Multi-LLM Support
+### Multi-LLM Support (9 Providers)
 
-Use your preferred AI provider:
+Use your preferred AI provider with three tiers per provider (Fast / Balanced / Powerful):
 
-```bash
-compilr                              # Claude (default)
-compilr --provider openai            # OpenAI GPT-4
-compilr --provider gemini            # Google Gemini
-compilr --provider ollama            # Local models
-```
+| Provider | Models | API Key |
+|----------|--------|---------|
+| **Claude** | Haiku, Sonnet, Opus | `ANTHROPIC_API_KEY` |
+| **OpenAI** | GPT-4o-mini, GPT-4o, o1 | `OPENAI_API_KEY` |
+| **Gemini** | Flash, Pro, Ultra | `GOOGLE_API_KEY` |
+| **Ollama** | Any local model | None (local) |
+| **Together AI** | Open-source models | `TOGETHER_API_KEY` |
+| **Groq** | Fast inference | `GROQ_API_KEY` |
+| **Fireworks** | Open-source models | `FIREWORKS_API_KEY` |
+| **Perplexity** | Search-augmented | `PERPLEXITY_API_KEY` |
+| **OpenRouter** | Multi-provider | `OPENROUTER_API_KEY` |
+
+Switch models anytime with `/model` -- a visual overlay with provider tabs, model cycling, and connection testing.
 
 ### Project Workflows
 
@@ -47,53 +60,63 @@ Built-in commands for structured development:
 
 | Command | Description |
 |---------|-------------|
-| `/init` | Initialize a new project with guided wizard |
-| `/design` | AI-driven requirements gathering |
+| `/new` | Create a project with guided 8-step wizard |
+| `/design` | AI-driven requirements gathering (creates PRD + backlog) |
 | `/sketch` | Quick 6-question project outline |
-| `/refine` | Iterative refinement of requirements |
-| `/backlog` | Manage project backlog |
+| `/prd` | Update the Product Requirements Document |
+| `/arch` | Create architecture documentation |
+| `/scaffold` | Generate base project structure |
+| `/build` | Implement a backlog item end-to-end |
+| `/backlog` | Visual backlog management |
+| `/docs` | Browse and edit all project documents |
 
-### Coding Tools
+### Multi-Agent Teams
 
-The CLI includes tools for file operations, git, and code search:
+Specialized AI agents with different expertise, tools, and model tiers:
 
-- **File Operations** - Read, write, edit files with permission prompts
-- **Git Integration** - Status, diff, commit, branch management
-- **Code Search** - Find definitions, references, TODOs
-- **Project Detection** - Auto-detect project type and structure
+- **`$arch`** Architect -- system design, patterns, tech decisions
+- **`$dev`** Developer -- implementation, coding, debugging
+- **`$qa`** QA Engineer -- testing, quality, code review
+- **`$pm`** PM -- planning, task tracking, estimation
+- **`$ops`** DevOps -- deployment, CI/CD, infrastructure
+- **`$docs`** Technical Writer -- documentation, guides
+- **`$ba`** Business Analyst -- requirements, metrics
+
+Run agents in the background with `$agent message &`, manage with `/bg`, `/fg`, `/kill`.
 
 ### Smart Context
 
-- **Auto-compaction** - Keeps context manageable for long sessions
-- **COMPILR.md** - Project-specific instructions loaded automatically
-- **Token tracking** - Monitor usage with `/tokens`
+- **Auto-compaction** -- automatically manages context window
+- **Anchors** -- persistent notes that survive compaction and sessions
+- **Token tracking** -- real-time context visualization with `/context`
+- **Session restore** -- pick up where you left off
+- **COMPILR.md** -- project-specific instructions loaded automatically
+
+### Safety & Permissions
+
+- **Permission levels** -- always, session, once, deny (with wildcards)
+- **Permission modes** -- Normal, Plan, Auto-accept
+- **Delete protection** -- prevents accidental deletion outside project path
+- **15 built-in guardrails** -- git safety, destructive command detection
+
+### 418 Terminal Themes
+
+Choose from 418 themes with live preview. Curated favorites plus browsing by Dark/Light.
+
+### Interactive Tutorials
+
+25 tutorials across 5 tabs (`/tutorial`): Basics, Projects, Plan & Build, Teams, Config.
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/help` | Show available commands |
-| `/keys` | Manage API keys |
-| `/config` | Configure settings |
-| `/init` | Initialize new project |
-| `/design` | Requirements gathering workflow |
-| `/sketch` | Quick project outline |
-| `/refine` | Refine requirements iteratively |
-| `/backlog` | Manage project tasks |
-| `/tools` | List available tools |
-| `/tokens` | Show token usage |
-| `/context` | Show context statistics |
-| `/compact` | Compress conversation context |
-| `/clear` | Clear conversation history |
-| `/exit` | Exit the CLI |
-
-## Keyboard Shortcuts
-
-| Key | Action |
-|-----|--------|
-| `Esc` | Cancel running operation |
-| `Enter` | Send message |
-| `↑` / `↓` | Navigate history |
+| Category | Commands |
+|----------|----------|
+| **Project** | `/new`, `/projects`, `/workflow`, `/backlog` |
+| **Development** | `/design`, `/sketch`, `/prd`, `/arch`, `/scaffold`, `/build`, `/docs` |
+| **Teams** | `/team`, `/bg`, `/fg`, `/kill`, `/pending`, `/filter` |
+| **Config** | `/config`, `/model`, `/permissions`, `/keys`, `/anchors` |
+| **Context** | `/context`, `/tokens`, `/compact`, `/status`, `/export` |
+| **Navigation** | `/help`, `/tutorial`, `/clear`, `/exit` |
 
 ## Configuration
 
@@ -112,11 +135,9 @@ export GOOGLE_API_KEY="..."             # Google Gemini
 # Ollama: no key needed, just run `ollama serve`
 ```
 
-Environment variables take priority over stored keys.
-
 ### Project Configuration
 
-Create a `COMPILR.md` file in your project root to provide context:
+Create a `COMPILR.md` file in your project root to provide AI context:
 
 ```markdown
 # COMPILR.md
@@ -127,7 +148,6 @@ This is a React application using TypeScript...
 ## Coding Standards
 - Use functional components
 - Prefer hooks over class components
-...
 ```
 
 The CLI automatically loads this file at startup.
@@ -145,9 +165,8 @@ The CLI automatically loads this file at startup.
 ## Links
 
 - [Website](https://compilr.dev)
-- [Documentation](https://compilr.dev/docs)
 - [npm Package](https://www.npmjs.com/package/@compilr-dev/cli)
-- [GitHub Issues](https://github.com/compilr-dev/cli/issues)
+- [Report Issues](https://github.com/compilr-dev/cli/issues)
 
 ## License
 
