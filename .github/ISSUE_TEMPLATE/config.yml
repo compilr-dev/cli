@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://compilr.dev/docs/cli/overview
+    about: Check the documentation before filing an issue
+  - name: Getting Started Guide
+    url: https://compilr.dev/docs/general/getting-started
+    about: New to the CLI? Start here

@@ -1,0 +1,81 @@
+name: Bug Report
+description: Report a bug in @compilr-dev/cli
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please fill out the sections below so we can reproduce and fix the issue.
+
+  - type: input
+    id: version
+    attributes:
+      label: CLI Version
+      description: "Run `compilr --version` to get this"
+      placeholder: "0.5.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: LLM Provider
+      description: Which provider were you using when the bug occurred?
+      options:
+        - Claude (Anthropic)
+        - OpenAI
+        - Gemini (Google)
+        - Ollama (local)
+        - Together AI
+        - Groq
+        - Fireworks AI
+        - Perplexity
+        - OpenRouter
+        - Not applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect to happen?
+      placeholder: |
+        What happened:
+        ...
+
+        What I expected:
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this?
+      placeholder: |
+        1. Run `compilr` in a project directory
+        2. Type `...`
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Your system info
+      placeholder: |
+        - OS: macOS 15 / Ubuntu 24.04 / Windows 11
+        - Node.js: 22.x
+        - Terminal: iTerm2 / Windows Terminal / etc.
+      render: markdown
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Error Output
+      description: Paste any error messages or relevant terminal output
+      render: shell
