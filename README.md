@@ -154,8 +154,29 @@ The CLI automatically loads this file at startup.
 
 ## Requirements
 
-- **Node.js** 18 or higher
+- **Node.js** 20 or higher
 - **API Key** for your chosen provider (except Ollama)
+- **Platform:** macOS, Linux, or Windows via WSL2
+
+### Windows Users
+
+The CLI requires a Unix-like shell environment. On Windows, use [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) (Windows Subsystem for Linux):
+
+```bash
+# 1. Install WSL2 (run in PowerShell as Administrator)
+wsl --install
+
+# 2. Open your WSL terminal, then install Node.js 20+
+#    (see https://nodejs.org for instructions)
+
+# 3. Install the CLI inside WSL
+npm install -g @compilr-dev/cli
+
+# 4. Start coding
+compilr
+```
+
+VS Code works seamlessly with WSL via the [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) -- open your project in VS Code, connect to WSL, and use the integrated terminal.
 
 ## Built With
 
