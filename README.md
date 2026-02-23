@@ -15,6 +15,9 @@
 [![npm version](https://img.shields.io/npm/v/@compilr-dev/cli.svg)](https://www.npmjs.com/package/@compilr-dev/cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+> [!WARNING]
+> This package is in beta. APIs may change between minor versions.
+
 ## Overview
 
 A structured AI coding assistant that brings discipline to AI-assisted development. Supports 9 LLM providers, multi-agent teams, project workflows, and 25 interactive tutorials -- all in your terminal.
